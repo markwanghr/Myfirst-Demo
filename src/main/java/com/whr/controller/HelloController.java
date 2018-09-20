@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.whr.pojo.IMoocJSONResult;
+import com.whr.pojo.JSONResult;
 import com.whr.pojo.Resource;
 
 @RestController
@@ -15,10 +15,10 @@ public class HelloController {
 	
 	
 	@RequestMapping("/getResource")
-	public IMoocJSONResult getResource(){
+	public JSONResult getResource(){
 		Resource bean = new Resource();
 		BeanUtils.copyProperties(resource, bean);
-		return IMoocJSONResult.ok(bean);
+		return JSONResult.ok(bean);
 	}
 	
 	@RequestMapping("/hello")

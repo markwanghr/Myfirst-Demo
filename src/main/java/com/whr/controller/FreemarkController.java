@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.whr.pojo.Resource;
 
 @Controller
-@RequestMapping("html")
+@RequestMapping("ftl")
 public class FreemarkController {
 
 	@Autowired
@@ -17,12 +17,12 @@ public class FreemarkController {
 	@RequestMapping("index")
 	public String index(ModelMap map){
 		map.addAttribute(resource);
-		return "freemark/index";
+		return "freemarker/index";
 	}
 	
 	@RequestMapping("login")
-	public String login(ModelMap map){
+	public String login(){
 		
-		return "freemark/center/login";
+		return "freemarker/center/login";
 	}
 }

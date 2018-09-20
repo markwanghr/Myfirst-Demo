@@ -25,7 +25,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  * @date 2016年4月22日 下午8:33:36
  * @version V1.0
  */
-public class IMoocJSONResult {
+public class JSONResult {
 
     // 定义jackson对象
     private static final ObjectMapper MAPPER = new ObjectMapper();
@@ -41,35 +41,35 @@ public class IMoocJSONResult {
     
     private String ok;	// 不使用
 
-    public static IMoocJSONResult build(Integer status, String msg, Object data) {
-        return new IMoocJSONResult(status, msg, data);
+    public static JSONResult build(Integer status, String msg, Object data) {
+        return new JSONResult(status, msg, data);
     }
 
-    public static IMoocJSONResult ok(Object data) {
-        return new IMoocJSONResult(data);
+    public static JSONResult ok(Object data) {
+        return new JSONResult(data);
     }
 
-    public static IMoocJSONResult ok() {
-        return new IMoocJSONResult(null);
+    public static JSONResult ok() {
+        return new JSONResult(null);
     }
     
-    public static IMoocJSONResult errorMsg(String msg) {
-        return new IMoocJSONResult(500, msg, null);
+    public static JSONResult errorMsg(String msg) {
+        return new JSONResult(500, msg, null);
     }
     
-    public static IMoocJSONResult errorMap(Object data) {
-        return new IMoocJSONResult(501, "error", data);
+    public static JSONResult errorMap(Object data) {
+        return new JSONResult(501, "error", data);
     }
     
-    public static IMoocJSONResult errorTokenMsg(String msg) {
-        return new IMoocJSONResult(502, msg, null);
+    public static JSONResult errorTokenMsg(String msg) {
+        return new JSONResult(502, msg, null);
     }
     
-    public static IMoocJSONResult errorException(String msg) {
-        return new IMoocJSONResult(555, msg, null);
+    public static JSONResult errorException(String msg) {
+        return new JSONResult(555, msg, null);
     }
 
-    public IMoocJSONResult() {
+    public JSONResult() {
 
     }
 
@@ -77,13 +77,13 @@ public class IMoocJSONResult {
 //        return new LeeJSONResult(status, msg, null);
 //    }
 
-    public IMoocJSONResult(Integer status, String msg, Object data) {
+    public JSONResult(Integer status, String msg, Object data) {
         this.status = status;
         this.msg = msg;
         this.data = data;
     }
 
-    public IMoocJSONResult(Object data) {
+    public JSONResult(Object data) {
         this.status = 200;
         this.msg = "OK";
         this.data = data;
@@ -128,10 +128,10 @@ public class IMoocJSONResult {
      * @author leechenxiang
      * @date 2016年4月22日 下午8:34:58
      */
-    public static IMoocJSONResult formatToPojo(String jsonData, Class<?> clazz) {
+    public static JSONResult formatToPojo(String jsonData, Class<?> clazz) {
         try {
             if (clazz == null) {
-                return MAPPER.readValue(jsonData, IMoocJSONResult.class);
+                return MAPPER.readValue(jsonData, JSONResult.class);
             }
             JsonNode jsonNode = MAPPER.readTree(jsonData);
             JsonNode data = jsonNode.get("data");
@@ -158,9 +158,9 @@ public class IMoocJSONResult {
      * @author leechenxiang
      * @date 2016年4月22日 下午8:35:21
      */
-    public static IMoocJSONResult format(String json) {
+    public static JSONResult format(String json) {
         try {
-            return MAPPER.readValue(json, IMoocJSONResult.class);
+            return MAPPER.readValue(json, JSONResult.class);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -178,7 +178,7 @@ public class IMoocJSONResult {
      * @author leechenxiang
      * @date 2016年4月22日 下午8:35:31
      */
-    public static IMoocJSONResult formatToList(String jsonData, Class<?> clazz) {
+    public static JSONResult formatToList(String jsonData, Class<?> clazz) {
         try {
             JsonNode jsonNode = MAPPER.readTree(jsonData);
             JsonNode data = jsonNode.get("data");

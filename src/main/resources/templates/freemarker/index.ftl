@@ -5,7 +5,9 @@
     <title></title>
 </head>
 <body>
-Thymeleaf模板引擎
-<h1 th:text="${name}">hello world~~~~~~~</h1>
+FreeMarker模板引擎
+<h1>${resource.name}</h1>
+<h1>${resource.website}</h1>
+<h1>${resource.language}</h1>
 </body>
 </html>

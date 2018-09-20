@@ -5,7 +5,7 @@
     <title></title>
 </head>
 <body>
-Thymeleaf模板引擎
-<h1 th:text="${name}">hello world~~~~~~~</h1>
+FreeMarker模板引擎
+<h1>center page</h1>
 </body>
 </html>
