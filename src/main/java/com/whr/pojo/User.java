@@ -37,11 +37,11 @@ public class User {
 	public String getDesc() {
 		return Desc;
 	}
-	public void setDesc(String desc) {//???
+	public void setDesc(String desc) {
 		Desc = desc;
 	}
 	public Date getBirthday() {
-		return birthday;
+		return birthday; 
 	}
 	public void setBirthday(Date birthday) {
 		this.birthday = birthday;
