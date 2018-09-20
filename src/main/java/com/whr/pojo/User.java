@@ -9,7 +9,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 public class User {
 	private String name;
-	@JsonIgnore      //忽略属性的输出
+	@JsonIgnore    //忽略属性的输出
 	private String password;
 	private int age;
 	@JsonInclude(Include.NON_NULL)  //属性为空时，忽略输出
@@ -37,7 +37,7 @@ public class User {
 	public String getDesc() {
 		return Desc;
 	}
-	public void setDesc(String desc) {
+	public void setDesc(String desc) {//???
 		Desc = desc;
 	}
 	public Date getBirthday() {
