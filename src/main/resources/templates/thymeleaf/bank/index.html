@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8" />
+    <title></title>
+    
+<!-- 	<script th:src="@{/static/js/test.js}"></script> -->
+    
+</head>
+<body>
+	<div>
+		<form th:action="@{/bank/add}" method="get">
+			账户ID:<input type="text" id="accId"></input>
+			<br/>
+			账户名:<input type="text" id="accName"></input>
+			<br/>
+			描&nbsp;述:<input type="text" id="desc"></input>
+			<br/>
+			金&nbsp;额:<input type="text" id="money"></input>
+			<br/>
+			<button type="submit">添加</button>
+			<button type="submit">修改</button>
+			<button type="submit">删除</button>
+			<button type="submit">查询</button>
+		</form>
+	
+	</div>
+
+</body>
+</html>

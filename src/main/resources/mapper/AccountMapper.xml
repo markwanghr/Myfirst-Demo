@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.whr.mapper.AccountMapper" >
+  <resultMap id="BaseResultMap" type="com.whr.pojo.Account" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="accId" property="accid" jdbcType="INTEGER" />
+    <result column="accName" property="accname" jdbcType="CHAR" />
+    <result column="desc" property="desc" jdbcType="CHAR" />
+    <result column="money" property="money" jdbcType="DOUBLE" />
+  </resultMap>
+</mapper>
