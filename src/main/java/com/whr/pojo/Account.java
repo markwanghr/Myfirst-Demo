@@ -10,7 +10,7 @@ public class Account {
     @Column(name = "accName")
     private String accname;
 
-    private String desc;
+    private String description;
 
     private Double money;
 
@@ -43,17 +43,17 @@ public class Account {
     }
 
     /**
-     * @return desc
+     * @return description
      */
-    public String getDesc() {
-        return desc;
+    public String getDescription() {
+        return description;
     }
 
     /**
-     * @param desc
+     * @param description
      */
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     /**
