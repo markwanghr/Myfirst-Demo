@@ -2,6 +2,7 @@ package com.whr.controller;
 
 import java.util.Date;
 
+import org.omg.PortableServer.ImplicitActivationPolicyOperations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -49,6 +50,33 @@ public class BankController {
 		System.out.println(account);
 		asi.add(account);
 		return "thymeleaf/bank/index";
+	}
+	
+	@RequestMapping("/delete")
+	public String delete(@RequestParam(value = "accid",required = false) Integer accid) throws Exception {
+		asi.delete(accid);
+		return "thymeleaf/bank/index";
+	}
+	
+	@RequestMapping("/update")
+	public String update(@RequestParam(value = "accid",required = false) Integer accid, @RequestParam(value = "accname",required = false) String accname,
+			@RequestParam(value = "description",required = false) String description, @RequestParam(value = "money",required = false) Double money) throws Exception {
+		Account account = new Account();
+		System.out.println(accid+"-->"+accname+"-->"+description+"-->"+money);
+		account.setAccid(accid);
+		account.setAccname(accname);
+		account.setDescription(description);
+		account.setMoney(money);
+		System.out.println(account);
+		asi.update(account);
+		return "thymeleaf/bank/index";
+	}
+	
+	@RequestMapping("/findById")
+	public JSONResult findById(@RequestParam(value = "accid",required = false) Integer accid) throws Exception {
+		Account account = asi.queryById(accid);
+		System.out.println(account);
+		return JSONResult.ok(account);
 	}
 
 }

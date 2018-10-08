@@ -2,23 +2,34 @@ package com.whr.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.whr.pojo.JSONResult;
 
 @Controller
 @RequestMapping("err")
 public class ErrorController {
 
 	@RequestMapping("/error")
-	public String error(){
+	public String error() {
+		
 		int a = 1 / 0;
-		System.out.println(a);
+		
 		return "thymeleaf/error";
 	}
 	
-	@RequestMapping("/ajaxError")
-	public String ajaxError(){
-		int a = 1 / 0;
-		System.out.println(a);
+	@RequestMapping("/ajaxerror")
+	public String ajaxerror() {
+		
 		return "thymeleaf/ajaxerror";
 	}
 	
+	@RequestMapping("/getAjaxerror")
+	@ResponseBody
+	public JSONResult getAjaxerror() {
+		
+		int a = 1 / 0;
+		
+		return JSONResult.ok();
+	}
 }
